@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajay's Birthday</title>
+
+    <style>
+        body {
+            text-align: center;
+            color: white;
+        }
+
+        #birthday {
+            color: rgb(247, 7, 7);
+            margin-top: 100px;
+            font-family: Arial, sans-serif;
+            font-size: 50px;
+        }
+
+        .myimg {
+            width: 400px;
+            border-radius: 200px;
+            border: 2px solid black;
+            display: block;
+            margin: 20px auto;
+        }
+
+        #bgvideo {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        #clickText {
+            font-size: 25px;
+            cursor: pointer;
+            margin-top: 20px;
+            display: inline-block;
+            padding: 10px 20px;
+            background: rgba(0,0,0,0.5);
+            border-radius: 10px;
+        }
+
+        #soundBtn {
+            padding: 12px 20px;
+            font-size: 18px;
+            background-color: rgb(255, 0, 0);
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1 id="birthday">Happy Birthday Ajay Sony</h1>
+
+    <img src="WhatsApp Image 2025-11-28 at 15.46.00_c41b5f52.jpg" class="myimg">
+
+    <!-- Background Video -->
+    <video autoplay loop muted playsinline id="bgvideo">
+        <source src="istockphoto-882950204-640_adpp_is.mp4" type="video/mp4">
+    </video>
+
+    <!-- Click Text -->
+    <p id="clickText">Please Click Here</p>
+
+    <!-- Sound Control Button -->
+    <button id="soundBtn">Click here</button>
+
+    <!-- Audio -->
+    <audio id="bgmusic" autoplay loop muted>
+        <source src="01-Monk-Turner-Fascinoma-Its-Your-Birthday(chosic.com).mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Script -->
+    <script>
+        let audio = document.getElementById("bgmusic");
+        let btn = document.getElementById("soundBtn");
+        let text = document.getElementById("clickText");
+        let isPlaying = false;
+
+        // Click text starts the music
+        text.addEventListener("click", function () {
+            audio.muted = false;
+            audio.play();
+            text.innerText = "Music is playing 🎵";
+        });
+
+        // Button control
+        btn.addEventListener("click", function () {
+            if (!isPlaying) {
+                audio.muted = false;
+                audio.play();
+                btn.innerText = "STOP";
+                isPlaying = true;
+            } else {
+                audio.pause();
+                btn.innerText = "Click here";
+                isPlaying = false;
+            }
+        });
+    </script>
+
+</body>
+</html>
